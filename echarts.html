@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>百度的ECHARTS插件的使用</title>
+	</head>
+	<body>
+		<!-- 使用ECHARTS这个插件也是要有一个基本的要求的 -->
+		<!-- 第一步：为 ECharts 准备一个具备大小（宽高）的 DOM -->
+		<!-- 我们的图标都在这个div画写出来 -->
+		<div id="main" style="width: 600px;height:400px;"></div>
+
+		<!-- 第二步：按需引入相关的脚本 -->
+		<!-- 这里我下载了官网ECHARTS的插件js -->
+		<script src="js/echarts.min.js"></script>
+		<script>
+			// 第三步:
+			// 基于准备好的dom，初始化echarts实例
+			// 就是获得我们准备好的div,获得它的id
+			var myChart = echarts.init(document.getElementById('main'));
+
+
+			// 第四步:
+			// 指定图表的配置项和数据
+			var option = {
+				title: {
+					text: 'ECharts 入门的案例'
+				},
+				tooltip: {
+					
+				},
+				legend: {
+					data: ['销量']
+				},
+				// x轴
+				xAxis: {
+					// 这些是可以修改的
+					data: ["羊毛衫", "雪纺衫", "高跟鞋"]
+				},
+				// y轴
+				yAxis: {},
+				series: [{
+					name: '销量',
+					// 我们要弄的表格类型,bar是条形图,ECHARTS里还有很多形状的图
+					type: 'bar',
+					// 这个是销量的数据,我们可以改一下
+					// 比如:羊毛衫销量是30件,雪纺衫的销量是2件,高跟鞋是100双
+					data: [30,2,100]
+				}]
+			};
+
+			// 使用刚指定的配置项和数据显示图表。
+			myChart.setOption(option);
+			
+			
+			// 更多的API可以查看官方网站里面的API教程,里面有很多不同的AIP
+		</script>
+	</body>
+</html>
